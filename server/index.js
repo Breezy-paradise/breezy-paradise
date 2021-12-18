@@ -2,8 +2,8 @@ require('dotenv').config();
 const express = require('express');
 const session = require('express-session')
 const massive = require('massive');
-const locationsCtrl = require('./controllers/locations');
-const itineraryCtrl = require('./controllers/itinerary');
+const locationsCtrl = require('./controller/locations');
+const itineraryCtrl = require('./controller/itinerary');
 const { register, login, logout, getUser, usersOnly} = require('./controller/auth');
 
 let { SERVER_PORT, CONNECTION_STRING, SESSION_SECRET } = process.env;
