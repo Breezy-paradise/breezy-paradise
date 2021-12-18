@@ -1,6 +1,6 @@
 module.exports = {
     getAllLocations: async (req, res) => {
-        let { id } = req.session.user;
+    //   const locations = await req.app.get('db').
     },
     getAttractions: (req, res) => {
         
