@@ -2,6 +2,7 @@ require('dotenv').config();
 const express = require('express');
 const session = require('express-session')
 const massive = require('massive');
+const { register, login, logout, getUser, usersOnly} = require('./controller/auth');
 
 let { SERVER_PORT, CONNECTION_STRING, SESSION_SECRET } = process.env;
 
@@ -13,7 +14,10 @@ app.use(
     session({
         secret: SESSION_SECRET,
         resave: true,
-        saveUninitialized: true
+        saveUninitialized: true,
+        cookie: {
+            maxAge: 1000 * 60 * 60 * 24 * 90,    //90 days. 1000 milliseconds * 60sec * 60min * 24hrs * 90days
+        }
     })
 );
 
@@ -26,6 +30,15 @@ massive({
 .then((db) => {
     app.set('db', db);
     console.log('Database connection established successfully')
+})
+.catch(err => {
+    console.log('DB setup failed with error', err)
 });
+
+//authorization endpoints
+app.post('/api/auth/register', register);
+app.post('/api/auth/login', login);
+app.post('/api/auth/logout', logout);
+app.get('/api/auth/user', getUser);
 
 app.listen(SERVER_PORT, () => console.log(`running on ${SERVER_PORT}`));
