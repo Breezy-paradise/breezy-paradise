@@ -2,6 +2,8 @@ require('dotenv').config();
 const express = require('express');
 const session = require('express-session')
 const massive = require('massive');
+const locationsCtrl = require('./controllers/locations');
+const itineraryCtrl = require('./controllers/itinerary');
 const { register, login, logout, getUser, usersOnly} = require('./controller/auth');
 
 let { SERVER_PORT, CONNECTION_STRING, SESSION_SECRET } = process.env;
@@ -35,6 +37,14 @@ massive({
     console.log('DB setup failed with error', err)
 });
 
+// //Locations Endpoints
+app.get('/api/locations', locationsCtrl.getAllLocations);
+app.get('/api/attractions/:location-id', locationsCtrl.getAttractions);
+
+// //Itinerary Endpoints
+app.post('/api/itinerary', itineraryCtrl.addItineraryItem);
+app.delete('/api/itinerary/:id', itineraryCtrl.deleteItineraryItem);
+app.get('/api/itinerary', itineraryCtrl.getLocationItinerary);
 //authorization endpoints
 app.post('/api/auth/register', register);
 app.post('/api/auth/login', login);
