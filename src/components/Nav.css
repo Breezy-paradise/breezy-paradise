@@ -1,0 +1,29 @@
+.main-nav {
+    background-color:black;
+    color:white;
+    display:flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.navbar-brand {
+    text-transform: uppercase;
+    padding: 0 15px;
+}
+
+.main-nav ul {
+    list-style-type: none;
+}
+
+.main-nav ul li {
+    display: inline;
+    padding: 0 10px;
+
+}
+
+.nav-link a {
+    text-decoration: none;
+    
+}
+
+
