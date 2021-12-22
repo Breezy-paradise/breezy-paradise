@@ -1,9 +1,9 @@
-import logo from './logo.svg';
 import './App.css';
 import Header from './components/Header';
 import Locations from './components/Locations';
 import Attractions from './components/Attractions';
 import Itinerary from './components/Itinerary';
+import routes from './routes';
 
 function App() {
   return (
@@ -16,6 +16,7 @@ function App() {
 
 
       />
+      {routes}
     </div>
   );
 }
