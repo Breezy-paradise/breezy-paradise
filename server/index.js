@@ -37,7 +37,7 @@ massive({
     console.log('DB setup failed with error', err)
 });
 
-// //Locations Endpoints
+//Locations Endpoints
 app.get('/api/locations', locationsCtrl.getAllLocations);
 app.get('/api/attractions/:location-id', locationsCtrl.getAttractions);
 
@@ -47,6 +47,12 @@ app.delete('/api/itinerary/:id', usersOnly, itineraryCtrl.deleteItineraryItem);
 app.get('/api/itinerary', usersOnly, itineraryCtrl.getLocationItinerary);
 
 //authorization endpoints
+//Itinerary Endpoints
+app.post('/api/itinerary', itineraryCtrl.addItineraryItem);
+app.delete('/api/itinerary/:id', itineraryCtrl.deleteItineraryItem);
+app.get('/api/itinerary', itineraryCtrl.getLocationItinerary);
+
+//Authorization Endpoints
 app.post('/api/auth/register', register);
 app.post('/api/auth/login', login);
 app.post('/api/auth/logout', logout);
