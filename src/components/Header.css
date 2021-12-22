@@ -1,50 +1,60 @@
 header {
-  background-color: $header-background;
-  .sign-in {
-    background-color: transparent;
-    border: none;
-    font-weight: bold;
-    text-transform: none;
-    color: $dark-main;
-    cursor: pointer;
-    font-size: 15px;
-  }
-  .sign-in:hover {
-    color: $sign-in-hover;
-  }
-  .sign-in-hidden {
-    display: none;
-  }
-  .signed-in-user {
-    font-weight: bold;
-    text-transform: none;
-    font-size: 15px;
-    color: $dark-main;
-    padding: 10px;
-    margin: 5px;
-  }
+  background-color: black;
 }
 
-.beauty-logo {
-  height: 50px;
-}
-
-nav {
-  margin: 0 auto;
-  padding: 7px 0px;
-  background-color: $dark-main;
-}
-
-.nav-link {
-  margin: 20px;
-  color: $nav-text;
+.logo-link {
+  color: white;
   text-decoration: none;
-  font-weight: bold;
 }
 
-.nav-link:hover {
-  border-bottom: 2px solid $nav-text;
+.logo-link:hover {
+  color: #0373c9;
+  text-decoration: none;
+}
+
+button {
+  background-color: #1b9cfc;
+  border: none;
+  color: white;
+  padding: 10px;
+  margin: 5px;
+  text-align: center;
+  text-transform: uppercase;
+  font-size: 13px;
+  border-radius: 10px;
+}
+
+button:hover {
+  background-color: #0373c9;
+  transition: background-color 0.25s ease-in-out, color 0.3s ease-in-out;
+}
+
+.sign-in {
+  background-color: transparent;
+  border: none;
+  font-weight: bold;
+  text-transform: none;
+  color: white;
   cursor: pointer;
+  font-size: 15px;
+}
+
+.sign-in:hover {
+  color: #1b9cfc;
+  background-color: black;
+}
+
+.sign-in-hidden {
+  display: none;
+}
+
+.signed-in-user {
+  font-weight: bold;
+  text-transform: none;
+  font-size: 15px;
+  color: white;
+  padding: 10px;
+  margin: 5px;
 }
 
 .header-flex {
@@ -66,7 +76,8 @@ nav {
   top: 50px;
   margin: 0 auto;
   padding: 20px;
-  background-color: $app-background;
+  background-color: #707070;
+  color: white;
   display: flex;
   flex-direction: column;
   border-radius: 10px;
@@ -80,23 +91,10 @@ nav {
 hr {
   width: 100%;
   margin: 20px 0;
-  color: $horizontal-line;
+  color: #ebebeb;
 }
 
-@media (max-width: 500px) {
-  .header-flex {
-    flex-direction: column;
-    margin: 20px 15px;
-  }
-  .nav-link {
-    margin: 10px;
-    color: $nav-text;
-    text-decoration: none;
-    font-weight: bold;
-  }
-}
-
-// to make the modal components fade in and out
+/* to make the modal components fade in and out */
 .ReactModal__Overlay {
   opacity: 0;
   transition: opacity 250ms ease-in-out;

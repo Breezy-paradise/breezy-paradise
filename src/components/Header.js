@@ -4,8 +4,8 @@ import axios from 'axios'
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { saveUserData, clearUserData } from '../redux/userReducer';
-// import './Header.scss';
-// import logo from '../images/BeautyLogo.png';
+import './Header.css';
+// import logo from '../images/Logo.png';
 
 const Header = (props) => {
 
@@ -118,7 +118,7 @@ const Header = (props) => {
     return (
         <header>
             <div className="header-flex">
-                <Link to='/breezy-paradise'>
+                <Link to='/breezy-paradise' className="logo-link">
                     {/* img src={logo} alt="breezy paradise logo" className="breezy-logo" /> */}
                     <h5>Breezy Paradise</h5>
                 </Link>
