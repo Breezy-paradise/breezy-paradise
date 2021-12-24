@@ -1,2 +1,2 @@
-SELECT name, image1, description
+SELECT *
 FROM location;
