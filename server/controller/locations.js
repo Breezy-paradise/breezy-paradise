@@ -10,7 +10,7 @@ module.exports = {
     },
     getAttractions: async (req, res) => {
         try {
-            attractions = await req.app.get('db').locations.get_attractions();
+            attractions = await req.app.get('db').locations.get_attractions(req.params.location_id);
             return res.status(200).send(attractions);
         } catch (e) {
             console.log(e);

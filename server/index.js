@@ -39,7 +39,7 @@ massive({
 
 //Locations Endpoints
 app.get('/api/locations', locationsCtrl.getAllLocations);
-app.get('/api/attractions/:location-id', locationsCtrl.getAttractions);
+app.get('/api/attractions/:location_id', locationsCtrl.getAttractions);
 
 //Itinerary Endpoints
 app.post('/api/itinerary', usersOnly, itineraryCtrl.addItineraryItem);
