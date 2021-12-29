@@ -1,0 +1,152 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+img {
+  max-width: 100%;
+  border-radius: 10px;
+  padding: 5px;
+  border: 1px solid rgb(150, 141, 141);
+}
+
+.container {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  background-color: rgb(255, 255, 255);
+  height: 100vh;
+  margin-top: 100px;
+  margin-left: 20px;
+  margin-right: 20px;
+  grid-gap: 10px;
+}
+
+.container1 {
+  background-color: #ffffff;
+  border: 1px solid rgb(243, 235, 235);
+  padding: 1rem;
+  font-family: arial;
+  color: rgb(0, 0, 0);
+  text-align: center;
+}
+
+.container2 {
+  background-color: #ffffff;
+  border: 1px solid rgb(243, 235, 235);
+  padding: 1rem;
+  font-family: arial;
+  color: rgb(0, 0, 0);
+  text-align: center;
+}
+
+.container3 {
+  background-color: #ffffff;
+  border: 1px solid rgb(243, 235, 235);
+  padding: 1rem;
+  font-family: arial;
+  color: rgb(0, 0, 0);
+  text-align: center;
+}
+
+.subcontainer {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  background-color: rgb(255, 255, 255);
+  height: 25vh;
+  margin-top: 30px;
+  margin-bottom: 30px;
+  padding: 10px;
+  border: 1px solid rgb(231, 204, 204);
+}
+
+.subcontainer1 {
+  margin-top: 5px;
+  margin-bottom: 0px;
+  padding: 0px;
+}
+
+.subcontainer2 {
+  margin-top: 35px;
+  margin-bottom: 0px;
+  padding: 5px;
+}
+
+.btn {
+  display: inline-block;
+  border: none;
+  background: #1b9cfc;
+  color: #fff;
+  padding: 0.5rem 1rem;
+  margin-top: 15px;
+}
+
+.subcontainer-details {
+  display: grid;
+  grid-template-rows: 1fr 1fr;
+  background-color: rgb(255, 255, 255);
+  height: 140vh;
+  margin-top: 10px;
+  margin-bottom: 30px;
+  padding: 10px;
+  border: 1px solid rgb(231, 204, 204);
+}
+
+.subcontainer-details1 {
+  margin-top: 5px;
+  margin-bottom: 0px;
+  padding: 20px;
+}
+
+.subcontainer-details2 {
+  margin-top: 0px;
+  margin-bottom: 0px;
+  padding: 20px;
+}
+
+.price {
+  background-color: rgb(223, 220, 233);
+  padding: 15px;
+}
+
+.parrafo {
+  background-color: rgb(223, 220, 233);
+  padding: 15px;
+}
+
+.duration {
+  background-color: rgb(223, 220, 233);
+  padding: 15px;
+}
+
+.subcontainer-itinerary {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  background-color: rgb(255, 255, 255);
+  height: 18vh;
+  margin-top: 30px;
+  margin-bottom: 30px;
+  padding: 10px;
+  border: 1px solid rgb(231, 204, 204);
+}
+
+.subcontainer-itinerary1 {
+  margin-top: 0px;
+  margin-bottom: 0px;
+  padding: 10px;
+}
+
+.day-itinerary {
+  background-color: rgb(223, 220, 233);
+  color: rgb(33, 13, 105);
+  padding-top: 50px;
+}
+
+.name-itinerary {
+  padding-top: 30px;
+}
+
+.price-itinerary {
+  padding-top: 20px;
+  color: rgb(33, 13, 105);
+}
