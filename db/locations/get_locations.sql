@@ -1,2 +1,1 @@
-SELECT name, image1, description
-FROM location;
+SELECT name, image1, description FROM location;

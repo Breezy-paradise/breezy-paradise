@@ -6,12 +6,11 @@ const Locations = ({title,imageUrl,body}) => {
 
     useEffect(() => {
         //Axios will go here.
-        axios.get("/api/locations")
+        axios.get("http://localhost:3050/api/locations")
         .then((res) => {
             console.log('Response Received!');
             console.log(res.data);
         })
-
         .catch((err) => {
             console.log(err);
         })
