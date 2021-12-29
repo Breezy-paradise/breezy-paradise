@@ -41,18 +41,13 @@ massive({
 
 //Locations Endpoints
 app.get('/api/locations', locationsCtrl.getAllLocations);
-app.get('/api/attractions/:location-id', locationsCtrl.getAttractions);
+app.get('/api/attractions/:location_id', locationsCtrl.getAttractions);
 
-// //Itinerary Endpoints
+//Itinerary Endpoints
 app.post('/api/itinerary', usersOnly, itineraryCtrl.addItineraryItem);
 app.delete('/api/itinerary/:id', usersOnly, itineraryCtrl.deleteItineraryItem);
-app.get('/api/itinerary', usersOnly, itineraryCtrl.getLocationItinerary);
+app.get('/api/itinerary/:location_id', usersOnly, itineraryCtrl.getLocationItinerary);
 
-//authorization endpoints
-//Itinerary Endpoints
-app.post('/api/itinerary', itineraryCtrl.addItineraryItem);
-app.delete('/api/itinerary/:id', itineraryCtrl.deleteItineraryItem);
-app.get('/api/itinerary', itineraryCtrl.getLocationItinerary);
 
 //Authorization Endpoints
 app.post('/api/auth/register', register);
