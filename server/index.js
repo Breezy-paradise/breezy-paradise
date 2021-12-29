@@ -1,7 +1,8 @@
-require('dotenv').config();
+require('dotenv').config({path:"./../.env"});
 const express = require('express');
 const session = require('express-session')
 const massive = require('massive');
+const cors = require('cors');
 const locationsCtrl = require('./controller/locations');
 const itineraryCtrl = require('./controller/itinerary');
 const { register, login, logout, getUser, usersOnly} = require('./controller/auth');
@@ -11,6 +12,7 @@ let { SERVER_PORT, CONNECTION_STRING, SESSION_SECRET } = process.env;
 const app = express();
 
 app.use(express.json());
+app.use(cors())
 
 app.use(
     session({

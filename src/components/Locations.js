@@ -1,7 +1,22 @@
-import React, { Component } from 'react'
+import React, { Component, useEffect } from 'react'
+import axios from 'axios'
 import './Locations.css'
 
 const Locations = ({title,imageUrl,body}) => {
+
+    useEffect(() => {
+        //Axios will go here.
+        axios.get("/api/locations")
+        .then((res) => {
+            console.log('Response Received!');
+            console.log(res.data);
+        })
+
+        .catch((err) => {
+            console.log(err);
+        })
+    }, []);
+
     return (
     <div>
     <div className="container">
