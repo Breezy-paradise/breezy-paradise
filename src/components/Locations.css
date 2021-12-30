@@ -1,8 +1,9 @@
 .container {
     margin: 40px;
     display:flex;
+    flex-wrap: wrap;
+    align-items: baseline;
     justify-content: space-evenly;
-
 }
 
 

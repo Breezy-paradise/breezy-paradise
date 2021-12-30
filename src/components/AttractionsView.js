@@ -1,4 +1,5 @@
 import React from 'react'
+import { useParams } from "react-router-dom";
 import Attractions from '../components/Attractions'
 import AttractionDetail from '../components/AttractionDetail'
 import AttractionItinerary from '../components/AttractionItinerary'
@@ -6,6 +7,12 @@ import attractionsDb from './attractionsDb'
 import './Attractions.css';
 
 const AttractionsView = () => {
+
+  // Get the routing params (instead of props.match.params)
+  let params = useParams();
+  // TODO: Use this locationId instead of the hardcoded id's. 
+  let locationId = params.id;
+
   return (
       <div className="container">
 
