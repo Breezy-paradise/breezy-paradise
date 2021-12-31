@@ -1,4 +1,4 @@
-import React from 'react'
+import React [useEffect] from 'react'
 import Attractions from '../components/Attractions'
 import AttractionDetail from '../components/AttractionDetail'
 import AttractionItinerary from '../components/AttractionItinerary'
@@ -6,12 +6,14 @@ import attractionsDb from './attractionsDb'
 import './Attractions.css';
 
 const AttractionsView = () => {
+
+
   return (
       <div className="container">
 
             <div className="container1">
               <h2>Attractions New York</h2>
-              {attractionsDb.map(attraction => 
+              {attractionsDb.find((p) => p.location_id === 1).map(attraction => 
                 <Attractions attraction={attraction}/>
               )}
             </div>  
