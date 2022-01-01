@@ -1,8 +1,16 @@
-.container {
-    margin: 40px;
-    display:flex;
-    justify-content: space-evenly;
+body {
+    /*background-image: url(../images/breezy.jpg);*/
 
+}
+
+.container {
+     margin: 40px;
+     display:flex; 
+    /* display: inline-block;*/ 
+    /* flex-wrap: wrap; */
+    /* align-items: baseline; */
+    /* justify-content: space-evenly; */
+    /* opacity: .6; */
 }
 
 
