@@ -8,9 +8,9 @@ header {
 .logo-link {
   color: white;
   text-decoration: none;
-  font-family: 'Alfa Slab One';font-size: 22px;
-  padding-top: 60px;
-  padding-left: 60px;
+  font-family: 'Alfa Slab One';
+  font-size: 22px;
+  
 }
 
 .logo-link:hover {
@@ -64,11 +64,13 @@ button:hover {
 }
 
 .header-flex {
+
   display: flex;
   justify-content: space-between;
   align-items: center;
-  height: 10vh;
   margin: 0 15px;
+  padding: 15px 7px;
+
 }
 
 .sign-in-flex {
@@ -87,6 +89,10 @@ button:hover {
   display: flex;
   flex-direction: column;
   border-radius: 10px;
+}
+
+.logo-link h5 {
+  letter-spacing: .4em;
 }
 
 .modal input {

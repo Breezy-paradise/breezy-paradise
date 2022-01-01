@@ -1,15 +1,18 @@
-body {
-    /*background-image: url(../images/breezy.jpg);*/
+.wrapper {
+    background-image: url(../images/breezy.jpg);
+    background-size: cover;
+    
 
 }
 
-.container {
-     margin: 40px;
+.my-container {
+   /*  margin: 40px; */
+   padding: 120px 30px 200px;
      display:flex; 
     /* display: inline-block;*/ 
     /* flex-wrap: wrap; */
     /* align-items: baseline; */
-    /* justify-content: space-evenly; */
+     justify-content: space-evenly; 
     /* opacity: .6; */
 }
 
@@ -27,6 +30,13 @@ body {
 .card-container:hover {
     transform: scale(1.1);
     box-shadow:  0px 0px 15px 0px;
+}
+
+.card-container p {
+    padding: 15px;
+    font-size: 10px;
+    line-height: 1.4em;
+    color:black;
 }
 
 .image-container {

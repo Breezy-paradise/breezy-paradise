@@ -22,11 +22,12 @@ const Locations = () => {
     }, []);
 
     return (
-        <div>
+        <div className="wrapper">
+            <div className="my-container">
             {locations.map(({ id, name, image1, image2, image3, description }) => {
                 return (
                     <Link to={`/breezy-paradise/location/${id}`} key={id}>
-                        <div className="container">
+                        
                             <div className='card-container'>
                                 <div className="image-container">
                                     <img src={image1} alt='' />
@@ -36,10 +37,11 @@ const Locations = () => {
                                 </div>
                                 <p>{description}</p>
                             </div>
-                        </div>
+                        
                     </Link>
                 )
             })}
+        </div>
         </div>
     )
 }
