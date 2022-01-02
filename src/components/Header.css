@@ -1,10 +1,16 @@
 header {
   background-color: black;
+  height: 80px;
+  /* position: fixed; */
+  width: 100%;
 }
 
 .logo-link {
   color: white;
   text-decoration: none;
+  font-family: 'Alfa Slab One';
+  font-size: 22px;
+  
 }
 
 .logo-link:hover {
@@ -58,11 +64,13 @@ button:hover {
 }
 
 .header-flex {
+
   display: flex;
   justify-content: space-between;
   align-items: center;
-  height: 10vh;
   margin: 0 15px;
+  padding: 15px 7px;
+
 }
 
 .sign-in-flex {
@@ -81,6 +89,10 @@ button:hover {
   display: flex;
   flex-direction: column;
   border-radius: 10px;
+}
+
+.logo-link h5 {
+  letter-spacing: .4em;
 }
 
 .modal input {

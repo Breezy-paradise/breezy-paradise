@@ -117,6 +117,7 @@ const Header = (props) => {
 
     return (
         <header>
+            <link href='https://fonts.googleapis.com/css?family=Alfa Slab One' rel='stylesheet'></link>
             <div className="header-flex">
                 <Link to='/breezy-paradise' className="logo-link">
                     {/* img src={logo} alt="breezy paradise logo" className="breezy-logo" /> */}
