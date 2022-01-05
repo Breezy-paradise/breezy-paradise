@@ -8,7 +8,6 @@ const itineraryCtrl = require('./controller/itinerary');
 const { register, login, logout, getUser, usersOnly} = require('./controller/auth');
 
 let { SERVER_PORT, CONNECTION_STRING, SESSION_SECRET } = process.env;
-console.log(SERVER_PORT);
 const app = express();
 
 app.use(express.json());

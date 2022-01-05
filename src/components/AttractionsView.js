@@ -80,16 +80,16 @@ const AttractionsView = (props) => {
         )}
       </div>
 
-      {/* <div className="container2"> 
-              <h2>Attractions Details</h2>  
-              <h3>Statue of Liberty and Ellis Island Tour</h3>    
-                <AttractionDetail attraction={selectedAttraction} addAttractionToItinerary={addAttractionToItinerary} />
-            </div>      
+      <div className="container2">
+        <h2>Attractions Details</h2>
+        <h3>Statue of Liberty and Ellis Island Tour</h3>
+        <AttractionDetail attraction={attraction} addAttractionToItinerary={addAttractionToItinerary} />
+      </div>
 
-            <div className="container3">
-              <h2>Itinerary</h2>  
-                 <AttractionItinerary itinerary={userItinerary} deleteItineraryItem={deleteItineraryItem} /> 
-            </div> */}
+      <div className="container3">
+        <h2>Itinerary</h2>
+        <AttractionItinerary itinerary={userItinerary} deleteItineraryItem={deleteItineraryItem} />
+      </div>
 
     </div>
   )
