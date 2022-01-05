@@ -37,7 +37,7 @@ const AttractionsView = (props) => {
     }
 
     getData();
-    getItineraryData(props);
+    getItineraryData();
   }, [props.user]);
 
   const getItineraryData = async () => {
