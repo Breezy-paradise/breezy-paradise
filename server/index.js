@@ -41,6 +41,7 @@ massive({
 
 //Locations Endpoints
 app.get('/api/locations', locationsCtrl.getAllLocations);
+app.get('/api/locations/:id', locationsCtrl.getLocation);
 app.get('/api/attractions/:location_id', locationsCtrl.getAttractions);
 
 //Itinerary Endpoints
