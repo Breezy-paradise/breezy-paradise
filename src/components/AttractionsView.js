@@ -9,7 +9,8 @@ import attractionsDb from './attractionsDb'
 import './Attractions.css';
 
 const AttractionsView = (props) => {
-  const [attraction, setAttraction] = useState([]);
+  const [attractionList, setAttractionList] = useState([]);
+  const [currentAttraction, setCurrentAttraction] = useState();
   const [location, setLocation] = useState();
   const [userItinerary, setUserItinerary] = useState([]);
 
@@ -21,8 +22,8 @@ const AttractionsView = (props) => {
   useEffect(() => {
     const getData = async () => {
       try {
-        const attractionResult = await axios.get(`/api/attractions/${locationId}`);
-        setAttraction(attractionResult.data);
+        const attractionsResult = await axios.get(`/api/attractions/${locationId}`);
+        setAttractionList(attractionsResult.data);
 
         const locationResult = await axios.get(`/api/locations/${locationId}`);
         setLocation(locationResult.data);
@@ -58,7 +59,7 @@ const AttractionsView = (props) => {
     }
   }
 
-  const addAttractionToItinerary = (attraction) => {
+  const addAttractionToItinerary = (attraction, dayNum) => {
     // TODO: Not Yet Implemented
     //     insert attraction to db user_itinerary table
     getItineraryData()
@@ -75,15 +76,15 @@ const AttractionsView = (props) => {
 
       <div className="container1">
         <h2> {location ? location.name : ""} Attractions</h2>
-        {attraction.map(attraction =>
-          <Attractions attraction={attraction} setAttraction={setAttraction} />
+        {attractionList.map(attraction =>
+          <Attractions attraction={attraction} setCurrentAttraction={setCurrentAttraction} />
         )}
       </div>
 
       <div className="container2">
         <h2>Attractions Details</h2>
         <h3>Statue of Liberty and Ellis Island Tour</h3>
-        <AttractionDetail attraction={attraction} addAttractionToItinerary={addAttractionToItinerary} />
+        <AttractionDetail attraction={currentAttraction} addAttractionToItinerary={addAttractionToItinerary} />
       </div>
 
       <div className="container3">
@@ -95,7 +96,7 @@ const AttractionsView = (props) => {
   )
 }
 
-function mapStateToProps(state) {  // redux properties to get from store
+function mapStateToProps(state) {  
   return {
     user: state.user
   }
