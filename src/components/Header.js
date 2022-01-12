@@ -18,6 +18,8 @@ const Header = (props) => {
     const [password, setPassword] = useState('');
     const [username, setUsername] = useState('');
     const [email, setEmail] = useState('');
+    const [navbar, setNavbar] = useState(false);    //For Showing and Hiding the Navbar Background
+
 
     const modalFadeMilliseconds = 250;
 
@@ -36,6 +38,16 @@ const Header = (props) => {
 
         getData();
     }, []);
+
+
+    window.addEventListener("scroll", () => {
+       if(window.scrollY >= 80){
+           setNavbar(true);
+       }
+       else {
+           setNavbar(false);
+       }
+    })
 
     const handleOpenSignInModal = () => {
         setShowSignInModal(true);
@@ -116,7 +128,7 @@ const Header = (props) => {
     }
 
     return (
-        <header>
+        <header className = {navbar ? 'header active': 'header'}>
             <link href='https://fonts.googleapis.com/css?family=Alfa Slab One' rel='stylesheet'></link>
             <div className="header-flex">
                 <Link to='/breezy-paradise' className="logo-link">
