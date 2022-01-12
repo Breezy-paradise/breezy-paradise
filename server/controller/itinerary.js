@@ -4,7 +4,6 @@ module.exports = {
             console.log(req.body);
             const { id } = req.session.user;
             const { dayNumber, attractionId } = req.body;
-            console.log('test error', [dayNumber, id, attractionId]);
             const userItinerary = await req.app.get('db').user_itinerary.create_itinerary([dayNumber, id, attractionId]);
             return res.status(200).send(userItinerary);
         } catch (e) {
