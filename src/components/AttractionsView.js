@@ -57,10 +57,20 @@ const AttractionsView = (props) => {
     }
   }
 
-  const addAttractionToItinerary = (attractionId, dayNumber) => {
-    // TODO: Not Yet Implemented
-    //     insert attraction to db user_itinerary table
-    getItineraryData()
+  const addAttractionToItinerary = async (dayNumber, attractionId) => {
+    // insert attraction to db user_itinerary table
+    let body = { dayNumber, attractionId };
+    try {
+      await axios.post('/api/itinerary', body);
+      getItineraryData();
+    } catch (err) {
+      if (err.isAxiosError) {
+        console.log(err.response.request.responseText);
+        alert(err.response.request.responseText);
+      } else {
+        console.log(err);
+      }
+    }
   }
 
   const deleteItineraryItem = (itineraryId) => {
@@ -70,7 +80,7 @@ const AttractionsView = (props) => {
   }
 
   const setAttraction = (attraction) => {
-   setCurrentAttraction(attraction);
+    setCurrentAttraction(attraction);
   }
 
   return (
@@ -98,7 +108,7 @@ const AttractionsView = (props) => {
   )
 }
 
-function mapStateToProps(state) {  
+function mapStateToProps(state) {
   return {
     user: state.user
   }
