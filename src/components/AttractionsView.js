@@ -15,14 +15,8 @@ const AttractionsView = (props) => {
   const [userItinerary, setUserItinerary] = useState([])
 
   // Get the routing params (instead of props.match.params)
-<<<<<<< HEAD
   let params = useParams()
-  // TODO: Use this locationId instead of the hardcoded id's.
   let locationId = params.id
-=======
-  let params = useParams();
-  let locationId = params.id;
->>>>>>> main
 
   useEffect(() => {
     const getData = async () => {
@@ -78,52 +72,28 @@ const AttractionsView = (props) => {
   }
 
   const setAttraction = (attraction) => {
-   setCurrentAttraction(attraction);
+    setCurrentAttraction(attraction)
   }
 
   return (
-<<<<<<< HEAD
     <div className='container'>
       <div className='container1'>
         <h2> {location ? location.name : ''} Attractions</h2>
-        {attractionList.map((attraction) => {
-          return (
-            <div className='subcontainer'>
-              <div className='subcontainer1'>
-                <img className='image' src={attraction.image1} />
-              </div>
-              <div className='subcontainer2'>
-                <strong className='name'>{attraction.name}</strong>
-                <h4>${attraction.price}</h4>
-                <button className='btn'>Details</button>
-              </div>
-            </div>
-          )
-        })}
+        {attractionList.map((attraction) => (
+          <Attractions
+            attraction={attraction}
+            setCurrentAttraction={setAttraction}
+          />
+        ))}
       </div>
 
       <div className='container2'>
-        <h2>Attractions Details</h2>
-        <h3>Statue of Liberty and Ellis Island Tour</h3>
+        <h2>Attraction Details</h2>
+        <h3>{currentAttraction ? currentAttraction.name : ''}</h3>
         <AttractionDetail
           attraction={currentAttraction}
           addAttractionToItinerary={addAttractionToItinerary}
         />
-=======
-    <div className="container">
-
-      <div className="container1">
-        <h2> {location ? location.name : ""} Attractions</h2>
-        {attractionList.map(attraction =>
-          <Attractions attraction={attraction} setCurrentAttraction={setAttraction} />
-        )}
-      </div>
-
-      <div className="container2">
-        <h2>Attraction Details</h2>
-        <h3>{currentAttraction ? currentAttraction.name : ''}</h3>
-        <AttractionDetail attraction={currentAttraction} addAttractionToItinerary={addAttractionToItinerary} />
->>>>>>> main
       </div>
 
       <div className='container3'>
