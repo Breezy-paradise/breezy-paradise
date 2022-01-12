@@ -5,7 +5,6 @@ import { connect } from 'react-redux';
 import Attractions from '../components/Attractions'
 import AttractionDetail from '../components/AttractionDetail'
 import AttractionItinerary from '../components/AttractionItinerary'
-import attractionsDb from './attractionsDb'
 import './Attractions.css';
 
 const AttractionsView = (props) => {
