@@ -1,8 +1,15 @@
-header {
-  background-color: black;
+.header {
+  /* background-color: black; */
   height: 80px;
-  /* position: fixed; */
+  position: fixed;
   width: 100%;
+  background: transparent;
+  transition: 0.5s;
+}
+
+.header.active {
+/*  background: linear-gradient(90deg, rgb (66, 2, 194) 0%, rgb (0, 78, 194) 100%);*/
+background:black;
 }
 
 .logo-link {
@@ -10,6 +17,8 @@ header {
   text-decoration: none;
   font-family: 'Alfa Slab One';
   font-size: 22px;
+  font-size: 25px;
+  -webkit-text-stroke: 1px black;
   
 }
 
