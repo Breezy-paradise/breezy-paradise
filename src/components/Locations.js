@@ -2,6 +2,8 @@ import React, { useState, useEffect } from 'react'
 import axios from 'axios'
 import { Link } from 'react-router-dom';
 import './Locations.css'
+import sectionimage1 from './../images/breezy6.jpg'
+import sectionimage2 from './../images/breezy7.jpg'
 
 const Locations = () => {
 
@@ -41,8 +43,24 @@ const Locations = () => {
                     </Link>
                 )
             })}
+            
         </div>
+        <div className="wrapper-2">
+            <div className="images-section">
+            <div className="first-image-section">
+                <h2 className="plan-heading first-plan-heading">Plan Your Excitement</h2>
+            <img className="hoverimages first-img" src={sectionimage1}/> 
+            </div>
+            <div className="second-image-section">
+            <h2 className="plan-heading second-plan-heading">Plan Your Adventure</h2>
+            <img className="hoverimages second-img" src={sectionimage2}/>
+            </div>
+            
+            </div>
         </div>
+        
+        </div>
+        
     )
 }
 
