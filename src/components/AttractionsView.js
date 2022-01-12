@@ -16,7 +16,6 @@ const AttractionsView = (props) => {
 
   // Get the routing params (instead of props.match.params)
   let params = useParams();
-  // TODO: Use this locationId instead of the hardcoded id's. 
   let locationId = params.id;
 
   useEffect(() => {
@@ -59,7 +58,7 @@ const AttractionsView = (props) => {
     }
   }
 
-  const addAttractionToItinerary = (attraction, dayNum) => {
+  const addAttractionToItinerary = (attractionId, dayNumber) => {
     // TODO: Not Yet Implemented
     //     insert attraction to db user_itinerary table
     getItineraryData()
@@ -71,19 +70,23 @@ const AttractionsView = (props) => {
     getItineraryData()
   }
 
+  const setAttraction = (attraction) => {
+   setCurrentAttraction(attraction);
+  }
+
   return (
     <div className="container">
 
       <div className="container1">
         <h2> {location ? location.name : ""} Attractions</h2>
         {attractionList.map(attraction =>
-          <Attractions attraction={attraction} setCurrentAttraction={setCurrentAttraction} />
+          <Attractions attraction={attraction} setCurrentAttraction={setAttraction} />
         )}
       </div>
 
       <div className="container2">
-        <h2>Attractions Details</h2>
-        <h3>Statue of Liberty and Ellis Island Tour</h3>
+        <h2>Attraction Details</h2>
+        <h3>{currentAttraction ? currentAttraction.name : ''}</h3>
         <AttractionDetail attraction={currentAttraction} addAttractionToItinerary={addAttractionToItinerary} />
       </div>
 
