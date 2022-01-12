@@ -15,9 +15,14 @@ const AttractionsView = (props) => {
   const [userItinerary, setUserItinerary] = useState([])
 
   // Get the routing params (instead of props.match.params)
+<<<<<<< HEAD
   let params = useParams()
   // TODO: Use this locationId instead of the hardcoded id's.
   let locationId = params.id
+=======
+  let params = useParams();
+  let locationId = params.id;
+>>>>>>> main
 
   useEffect(() => {
     const getData = async () => {
@@ -60,7 +65,7 @@ const AttractionsView = (props) => {
     }
   }
 
-  const addAttractionToItinerary = (attraction, dayNum) => {
+  const addAttractionToItinerary = (attractionId, dayNumber) => {
     // TODO: Not Yet Implemented
     //     insert attraction to db user_itinerary table
     getItineraryData()
@@ -72,7 +77,12 @@ const AttractionsView = (props) => {
     getItineraryData()
   }
 
+  const setAttraction = (attraction) => {
+   setCurrentAttraction(attraction);
+  }
+
   return (
+<<<<<<< HEAD
     <div className='container'>
       <div className='container1'>
         <h2> {location ? location.name : ''} Attractions</h2>
@@ -99,6 +109,21 @@ const AttractionsView = (props) => {
           attraction={currentAttraction}
           addAttractionToItinerary={addAttractionToItinerary}
         />
+=======
+    <div className="container">
+
+      <div className="container1">
+        <h2> {location ? location.name : ""} Attractions</h2>
+        {attractionList.map(attraction =>
+          <Attractions attraction={attraction} setCurrentAttraction={setAttraction} />
+        )}
+      </div>
+
+      <div className="container2">
+        <h2>Attraction Details</h2>
+        <h3>{currentAttraction ? currentAttraction.name : ''}</h3>
+        <AttractionDetail attraction={currentAttraction} addAttractionToItinerary={addAttractionToItinerary} />
+>>>>>>> main
       </div>
 
       <div className='container3'>
