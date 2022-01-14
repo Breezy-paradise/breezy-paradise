@@ -1,13 +1,12 @@
 import React, { useState, useEffect } from 'react'
 import './Attractions.css';
 
-
 const AttractionDetail = ({ attraction, addAttractionToItinerary }) => {
   //TODO: add a dayNumber selector 
   const [dayNumber, setDayNumber] = useState(1);
 
   return (
-    <div> 
+    <div>
       {/* Only render an attraction if one is selected */}
       {attraction ?
         <div className="subcontainer-details">
