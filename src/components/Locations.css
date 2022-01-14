@@ -1,9 +1,74 @@
 .wrapper {
-    background-image: url(../images/breezy.jpg);
-    background-size: cover;
+    background-image: url(../images/breezy3.jpg);
+    background-size: 100% 100%;
+    
+}
+
+.wrapper-2 {
+    /* background-image: url(../images/breezy2.webp); */
+    background-color: #0061a5;
+    background-size: 100% 100%;
+    /* background-size: cover; */
+    width: 100%;
+    position: absolute;
+
+}
+
+.wrapper-2 .images-section {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    margin: 300px 30px;
+
+}
+
+.first-image-section, .second-image-section  {
+    position: relative;
+}
+
+.first-image-section .plan-heading {
+    z-index:10;
+    position: absolute;
+    top:50px;
+    left:40px;
+   
+}
+
+.first-image-section .first-img {
+     opacity: 0;
+     
+}
+
+.second-image-section .second-img {
+    opacity: 0;
+}
+
+.second-image-section .plan-heading {
+    z-index: 10;
+    position: absolute;
+    top:50px;
+    left:40px;
     
 
 }
+
+.wrapper-2 .hoverimages {
+    width: 500px;
+    height:300px;
+}
+
+
+
+
+.wrapper-2 .plan-heading {
+    font-size: 48px;
+    color:white;
+    text-align: center;
+    margin: 25px 0px 0px;
+    text-transform: uppercase;
+}
+
+
 
 .my-container {
    /*  margin: 40px; */
@@ -37,6 +102,7 @@
     font-size: 10px;
     line-height: 1.4em;
     color:black;
+    background:white
 }
 
 .image-container {
@@ -58,6 +124,7 @@
 
  .card-title{
      margin-bottom: 0.5rem;
+     color: black;
  }
 
  .btn {
@@ -90,3 +157,20 @@
      text-align: center;
      margin: 10px 0;
  }
+
+/*.hoverimages   */
+.first-image-section:hover .first-img {
+   
+   /* visibility: visible; */
+   animation: imageinout .8s linear normal forwards; 
+}
+
+.second-image-section:hover .second-img {
+    animation: imageinout .8s linear normal forwards; 
+}
+
+@keyframes imageinout {
+    0% { opacity: 0; }
+    50% { opacity: .5; }
+    100% { opacity: 1;}
+}
