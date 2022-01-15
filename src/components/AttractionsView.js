@@ -73,10 +73,19 @@ const AttractionsView = (props) => {
     }
   }
 
-  const deleteItineraryItem = (itineraryId) => {
-    // TODO: Not Yet Implemented
+  const deleteItineraryItem = async (itineraryId) => {
     // delete the itinerary item
-    getItineraryData()
+    try {
+      await axios.delete(`/api/itinerary/${itineraryId}`);
+      getItineraryData();
+    } catch (err) {
+      if (err.isAxiosError) {
+        console.log(err.response.request.responseText);
+        alert(err.response.request.responseText);
+      } else {
+        console.log(err);
+      }
+    }
   }
 
   const setAttraction = (attraction) => {

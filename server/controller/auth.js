@@ -1,6 +1,6 @@
 const bcrypt = require('bcryptjs');
 
-const register = async (req, res) => {
+const register = async (req, res, next) => {
     const { username, email, password } = req.body;
     try {
         if (!username || !password || !email) {
@@ -26,7 +26,8 @@ const register = async (req, res) => {
         console.log(e);
         res.status(500).send("registration error");
     }
-}
+    next()
+    }
 
 const login = async (req, res) => {
     const { username, password } = req.body;

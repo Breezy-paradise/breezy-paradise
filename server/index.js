@@ -1,17 +1,18 @@
 require('dotenv').config();
 const express = require('express');
-const session = require('express-session')
+const session = require('express-session');
 const massive = require('massive');
 const cors = require('cors');
 const locationsCtrl = require('./controller/locations');
 const itineraryCtrl = require('./controller/itinerary');
+const { thanksForRegistering, sendItinerary } = require('./email');
 const { register, login, logout, getUser, usersOnly} = require('./controller/auth');
 
 let { SERVER_PORT, CONNECTION_STRING, SESSION_SECRET } = process.env;
-const app = express();
 
+const app = express();
 app.use(express.json());
-app.use(cors())
+app.use(cors());
 
 app.use(
     session({
@@ -47,10 +48,10 @@ app.get('/api/attractions/:location_id', locationsCtrl.getAttractions);
 app.post('/api/itinerary', usersOnly, itineraryCtrl.addItineraryItem);
 app.delete('/api/itinerary/:id', usersOnly, itineraryCtrl.deleteItineraryItem);
 app.get('/api/itinerary/:location_id', usersOnly, itineraryCtrl.getLocationItinerary);
-
+app.post('/api/send-itinerary', sendItinerary);
 
 //Authorization Endpoints
-app.post('/api/auth/register', register);
+app.post('/api/auth/register', register, thanksForRegistering);
 app.post('/api/auth/login', login);
 app.post('/api/auth/logout', logout);
 app.get('/api/auth/user', getUser);
