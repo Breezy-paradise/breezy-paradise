@@ -1,11 +1,13 @@
 import React from 'react'
 import './Attractions.css';
 
-const AttractionItinerary = ({ itinerary, deleteItineraryItem }) => {
+const AttractionItinerary = ({ itinerary, deleteItineraryItem, location }) => {
 
   const emailItinerary = () => {
     //TODO: write this method
   }
+
+  const totalCost = () => itinerary.reduce((acc, item) => acc + item.price, 0);
 
   return (
     <section className="subcontainer-itinerary">
@@ -22,8 +24,13 @@ const AttractionItinerary = ({ itinerary, deleteItineraryItem }) => {
             <button className="delete-button" onClick={() => deleteItineraryItem(id)}>Delete</button>
           </div>)
       })}
-      {itinerary.length > 0 ? <button onClick={() => emailItinerary()} >Email My Itinerary</button> : null}
-    </section>
+      {itinerary.length > 0 ?
+        <div>
+          <h4> Total Cost: ${totalCost()}</h4>
+          <button onClick={() => emailItinerary()} >Email My Itinerary</button>
+        </div>
+        : null}
+    </section >
 
     // <div className="subcontainer-itinerary">
 
