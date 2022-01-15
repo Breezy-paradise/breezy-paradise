@@ -123,7 +123,7 @@ const AttractionsView = (props) => {
 
       <div className="container3">
         <h2>Itinerary</h2>
-        <AttractionItinerary itinerary={userItinerary} deleteItineraryItem={deleteItineraryItem} />
+        <AttractionItinerary itinerary={userItinerary} deleteItineraryItem={deleteItineraryItem} location={location} />
       </div>
 
     </div>
