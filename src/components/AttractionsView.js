@@ -5,7 +5,6 @@ import { connect } from 'react-redux';
 import Attractions from '../components/Attractions'
 import AttractionDetail from '../components/AttractionDetail'
 import AttractionItinerary from '../components/AttractionItinerary'
-import attractionsDb from './attractionsDb'
 import './Attractions.css';
 
 const AttractionsView = (props) => {
@@ -58,20 +57,39 @@ const AttractionsView = (props) => {
     }
   }
 
-  const addAttractionToItinerary = (attractionId, dayNumber) => {
-    // TODO: Not Yet Implemented
-    //     insert attraction to db user_itinerary table
-    getItineraryData()
+  const addAttractionToItinerary = async (dayNumber, attractionId) => {
+    // insert attraction to db user_itinerary table
+    let body = { dayNumber, attractionId };
+    try {
+      await axios.post('/api/itinerary', body);
+      getItineraryData();
+    } catch (err) {
+      if (err.isAxiosError) {
+        console.log(err.response.request.responseText);
+        alert(err.response.request.responseText);
+      } else {
+        console.log(err);
+      }
+    }
   }
 
-  const deleteItineraryItem = (itineraryId) => {
-    // TODO: Not Yet Implemented
+  const deleteItineraryItem = async (itineraryId) => {
     // delete the itinerary item
-    getItineraryData()
+    try {
+      await axios.delete(`/api/itinerary/${itineraryId}`);
+      getItineraryData();
+    } catch (err) {
+      if (err.isAxiosError) {
+        console.log(err.response.request.responseText);
+        alert(err.response.request.responseText);
+      } else {
+        console.log(err);
+      }
+    }
   }
 
   const setAttraction = (attraction) => {
-   setCurrentAttraction(attraction);
+    setCurrentAttraction(attraction);
   }
 
   return (
@@ -99,7 +117,7 @@ const AttractionsView = (props) => {
   )
 }
 
-function mapStateToProps(state) {  
+function mapStateToProps(state) {
   return {
     user: state.user
   }
