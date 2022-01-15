@@ -39,6 +39,19 @@ const AttractionsView = (props) => {
     getItineraryData();
   }, [props.user]);
 
+  // convert database column names to js names
+  const itineraryFromDB = (dbItinerary) => {
+    return dbItinerary.map(({ id, day_num, name, duration_hours, price }) => {
+      return {
+        id,
+        dayNumber: day_num,
+        name,
+        durationHours: duration_hours,
+        price
+      }
+    })
+  }
+
   const getItineraryData = async () => {
     try {
       //if not logged in, clear the itinerary 
@@ -47,7 +60,7 @@ const AttractionsView = (props) => {
         return;
       }
       const itineraryResult = await axios.get(`/api/itinerary/${locationId}`);
-      setUserItinerary(itineraryResult.data);
+      setUserItinerary(itineraryFromDB(itineraryResult.data));
     } catch (err) {
       if (err.isAxiosError) {
         console.log(err.response.request.responseText);
