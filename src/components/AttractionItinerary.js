@@ -1,11 +1,26 @@
-import React from 'react'
+import React, { useState } from 'react';
+import axios from 'axios';
 import './Attractions.css';
 
 const AttractionItinerary = ({ itinerary, deleteItineraryItem, location }) => {
 
-  const emailItinerary = () => {
-    //TODO: write this method
-  }
+  const userItinerary = useState([]);
+
+  const emailItinerary = async (itinerary) => { 
+    try {
+      const email = await axios.post('/api/send_itinerary', { itinerary, location });
+      console.log('Email Itinerary')
+      userItinerary(email.data);
+    }
+    catch (err) {
+      if (err.isAxiosError) {
+        console.log(err.response.request.responseText);
+        alert(err.response.request.responseText);
+      } else {
+        console.log(err);
+      }
+    }
+  };
 
   const totalCost = () => itinerary.reduce((acc, item) => acc + item.price, 0);
 
@@ -24,13 +39,8 @@ const AttractionItinerary = ({ itinerary, deleteItineraryItem, location }) => {
             <button className="delete-button" onClick={() => deleteItineraryItem(id)}>Delete</button>
           </div>)
       })}
-      {itinerary.length > 0 ?
-        <div>
-          <h4> Total Cost: ${totalCost()}</h4>
-          <button onClick={() => emailItinerary()} >Email My Itinerary</button>
-        </div>
-        : null}
-    </section >
+      {itinerary.length > 0 ? <button onClick={() => emailItinerary(itinerary)}>Email My Itinerary</button> : null}
+    </section>
 
     // <div className="subcontainer-itinerary">
 
@@ -49,4 +59,4 @@ const AttractionItinerary = ({ itinerary, deleteItineraryItem, location }) => {
   )
 }
 
-export default AttractionItinerary
+export default AttractionItinerary;

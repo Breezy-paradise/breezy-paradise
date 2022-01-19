@@ -37,8 +37,8 @@ module.exports = {
     });
     },
     sendItinerary: (req, res) => {
-        let email = req.body.email;
-    
+        let email = req.session.user.email;
+        let itinerary = req.body.itinerary;
     const transporter = nodemailer.createTransport({
         host: 'smtp.mailtrap.io',
         port: 587,
@@ -53,7 +53,7 @@ module.exports = {
         from: EMAIL_USERNAME,
         to: email,
         subject: 'Upcoming Breezy Paradise Vacation',
-        html: '<h1>Dear {{username}},</h1><p>Thank you for choosing Breezy Paradise for your next greatest vacation! Here are all the details to your itinerary:</p>',
+        html: '<h1>Dear {username},</h1><p>Thank you for choosing Breezy Paradise for your next greatest vacation! Here are all the details to your itinerary:</p>',
     };
 
     transporter.sendMail(itineraryEmail, function(error, info){
