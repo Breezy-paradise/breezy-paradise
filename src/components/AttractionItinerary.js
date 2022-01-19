@@ -4,13 +4,10 @@ import './Attractions.css';
 
 const AttractionItinerary = ({ itinerary, deleteItineraryItem, location }) => {
 
-  const userItinerary = useState([]);
-
-  const emailItinerary = async (itinerary) => { 
+  const emailItinerary = async () => {
     try {
-      const email = await axios.post('/api/send_itinerary', { itinerary, location });
-      console.log('Email Itinerary')
-      userItinerary(email.data);
+      await axios.post('/api/send_itinerary', { itinerary, location });
+      alert(`Itinerary For ${location.name} Sent`);
     }
     catch (err) {
       if (err.isAxiosError) {
@@ -39,7 +36,12 @@ const AttractionItinerary = ({ itinerary, deleteItineraryItem, location }) => {
             <button className="delete-button" onClick={() => deleteItineraryItem(id)}>Delete</button>
           </div>)
       })}
-      {itinerary.length > 0 ? <button onClick={() => emailItinerary(itinerary)}>Email My Itinerary</button> : null}
+      {itinerary.length > 0 ?
+        <div>
+          <h4> Total Cost: ${totalCost()}</h4>
+          <button onClick={() => emailItinerary()}>Email My Itinerary</button>
+        </div>
+        : null}
     </section>
 
     // <div className="subcontainer-itinerary">
