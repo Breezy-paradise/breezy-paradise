@@ -1,4 +1,3 @@
-const { UNSAFE_NavigationContext } = require("react-router-dom");
 
 module.exports = {
     addItineraryItem: async (req, res) => {
@@ -29,6 +28,5 @@ module.exports = {
             console.log(e);
             res.status(500).send("Get Location Itinerary Error");
         }
-        next();
     }
 }

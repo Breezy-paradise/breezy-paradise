@@ -47,8 +47,8 @@ app.get('/api/attractions/:location_id', locationsCtrl.getAttractions);
 //Itinerary Endpoints
 app.post('/api/itinerary', usersOnly, itineraryCtrl.addItineraryItem);
 app.delete('/api/itinerary/:id', usersOnly, itineraryCtrl.deleteItineraryItem);
-app.get('/api/itinerary/:location_id', usersOnly, itineraryCtrl.getLocationItinerary, sendItinerary);
-// app.post('/api/send_itinerary', usersOnly, sendItinerary);
+app.get('/api/itinerary/:location_id', usersOnly, itineraryCtrl.getLocationItinerary);
+app.post('/api/send_itinerary', usersOnly, sendItinerary);
 
 //Authorization Endpoints
 app.post('/api/auth/register', register, thanksForRegistering);

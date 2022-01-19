@@ -8,7 +8,7 @@ const AttractionItinerary = ({ itinerary, deleteItineraryItem, location }) => {
 
   const emailItinerary = async (itinerary) => { 
     try {
-      const email = await axios.get('/api/itinerary/:location_id', { itinerary });
+      const email = await axios.post('/api/send_itinerary', { itinerary, location });
       console.log('Email Itinerary')
       userItinerary(email.data);
     }
@@ -20,7 +20,6 @@ const AttractionItinerary = ({ itinerary, deleteItineraryItem, location }) => {
         console.log(err);
       }
     }
-    emailItinerary();
   };
 
   const totalCost = () => itinerary.reduce((acc, item) => acc + item.price, 0);

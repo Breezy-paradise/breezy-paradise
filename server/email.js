@@ -37,8 +37,8 @@ module.exports = {
     });
     },
     sendItinerary: (req, res) => {
-        let email = req.body.email;
-    
+        let email = req.session.user.email;
+        let itinerary = req.body.itinerary;
     const transporter = nodemailer.createTransport({
         host: 'smtp.mailtrap.io',
         port: 587,
