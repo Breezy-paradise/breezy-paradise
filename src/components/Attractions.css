@@ -116,7 +116,33 @@ img {
 
 .duration {
   background-color: rgb(223, 220, 233);
-  padding: 15px;
+  padding: 5px;
+}
+
+.container-form {
+  display: flex;
+  flex-direction: row;
+  margin-top: 15px;
+  padding: 5px;
+}
+
+.container-form-detail {
+  display: flex;
+  flex-direction: row;
+  margin-left: 50px;
+  padding: 0px;
+}
+
+.select {
+  display: inline-block;
+  border: none;
+  background: #1b9cfc;
+  color: #fff;
+  padding: 0.5rem 2rem;
+  margin-top: 15px;
+  margin-right: 15px;
+  font-size: medium;
+  border-radius: 10px;
 }
 
 .subcontainer-itinerary {
