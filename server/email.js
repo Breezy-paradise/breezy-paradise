@@ -53,7 +53,7 @@ module.exports = {
         from: EMAIL_USERNAME,
         to: email,
         subject: 'Upcoming Breezy Paradise Vacation',
-        html: '<h1>Dear {{username}},</h1><p>Thank you for choosing Breezy Paradise for your next greatest vacation! Here are all the details to your itinerary:</p>',
+        html: '<h1>Dear {username},</h1><p>Thank you for choosing Breezy Paradise for your next greatest vacation! Here are all the details to your itinerary:</p>',
     };
 
     transporter.sendMail(itineraryEmail, function(error, info){
