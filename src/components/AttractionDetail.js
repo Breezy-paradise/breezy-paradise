@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react'
 import './Attractions.css'
 
 const AttractionDetail = ({ attraction, addAttractionToItinerary }) => {
-  //TODO: add a dayNumber selector
+
   const [dayNumber, setDayNumber] = useState(1)
 
   const handleSubmit = (e) => {
@@ -43,24 +43,21 @@ const AttractionDetail = ({ attraction, addAttractionToItinerary }) => {
                       name=''
                       id=''
                       className='select'
-                      onChange={(e) => setDayNumber(e.target.value)}
+                      onChange={(e) => setDayNumber(parseInt(e.target.value))}
                     >
-                      <option value='Day 1'>Day 1</option>
-                      <option value='Day 2'>Day 2</option>
-                      <option value='Day 3'>Day 3</option>
-                      <option value='Day 4'>Day 4</option>
-                      <option value='Day 5'>Day 5</option>
-                      <option value='Day 6'>Day 6</option>
-                      <option value='Day 7'>Day 7</option>
+                      <option value='1'>Day 1</option>
+                      <option value='2'>Day 2</option>
+                      <option value='3'>Day 3</option>
+                      <option value='4'>Day 4</option>
+                      <option value='5'>Day 5</option>
+                      <option value='6'>Day 6</option>
+                      <option value='7'>Day 7</option>
                     </select>
                   </div>
 
                   <div>
                     <button
                       type='submit'
-                      // onClick={() =>
-                      //   addAttractionToItinerary(dayNumber, attraction.id)
-                      // }
                       className='btn'
                     >
                       Select Attraction
