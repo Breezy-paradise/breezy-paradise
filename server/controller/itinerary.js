@@ -3,7 +3,6 @@ const { UNSAFE_NavigationContext } = require("react-router-dom");
 module.exports = {
     addItineraryItem: async (req, res) => {
         try {
-            console.log(req.body);
             const { id } = req.session.user;
             const { dayNumber, attractionId } = req.body;
             const userItinerary = await req.app.get('db').user_itinerary.create_itinerary([dayNumber, id, attractionId]);

@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import './Attractions.css';
 
-const AttractionItinerary = ({ itinerary, deleteItineraryItem }) => {
+const AttractionItinerary = ({ itinerary, deleteItineraryItem, location }) => {
 
   const userItinerary = useState([]);
 
@@ -22,6 +22,8 @@ const AttractionItinerary = ({ itinerary, deleteItineraryItem }) => {
     }
     emailItinerary();
   };
+
+  const totalCost = () => itinerary.reduce((acc, item) => acc + item.price, 0);
 
   return (
     <section className="subcontainer-itinerary">
