@@ -7,7 +7,9 @@ const AttractionDetail = ({ attraction, addAttractionToItinerary }) => {
 
   const handleSubmit = (e) => {
     e.preventDefault()
+    addAttractionToItinerary(dayNumber, attraction.id)
     console.log(dayNumber)
+    console.log(attraction.id)
   }
 
   return (
