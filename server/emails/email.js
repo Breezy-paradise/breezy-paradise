@@ -1,6 +1,13 @@
 require('dotenv').config();
 nodemailer = require('nodemailer');
 const express = require('express');
+// const html = require('./template.html');
+const fs = require('fs');
+const { promisify } = require('util');
+const readFile = promisify(fs.readFile);
+const path = require('path');
+
+require('events').EventEmitter.defaultMaxListeners = 15;
 
 let { EMAIL_USERNAME, EMAIL_PASSWORD } = process.env;
 
@@ -36,7 +43,7 @@ module.exports = {
         }
     });
     },
-    sendItinerary: (req, res) => {
+    sendItinerary: async (req, res) => {
         let email = req.session.user.email;
         let itinerary = req.body.itinerary;
     const transporter = nodemailer.createTransport({
@@ -53,15 +60,15 @@ module.exports = {
         from: EMAIL_USERNAME,
         to: email,
         subject: 'Upcoming Breezy Paradise Vacation',
-        html: '<h1>Dear {username},</h1><p>Thank you for choosing Breezy Paradise for your next greatest vacation! Here are all the details to your itinerary:</p>',
+        html: await readFile('server/emails/template.html', 'utf8'),
     };
 
-    transporter.sendMail(itineraryEmail, function(error, info){
+    transporter.sendMail(itineraryEmail, function(error, info) {
         if (error) {
             console.log('Mail not sent');
         } else {
             console.log('Email sent:' + info.messageId);
         }
     });
-}
+    }
 };

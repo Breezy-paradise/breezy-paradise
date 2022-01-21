@@ -5,7 +5,7 @@ const massive = require('massive');
 const cors = require('cors');
 const locationsCtrl = require('./controller/locations');
 const itineraryCtrl = require('./controller/itinerary');
-const { thanksForRegistering, sendItinerary } = require('./email');
+const { thanksForRegistering, sendItinerary } = require('./emails/email');
 const { register, login, logout, getUser, usersOnly} = require('./controller/auth');
 
 let { SERVER_PORT, CONNECTION_STRING, SESSION_SECRET } = process.env;
