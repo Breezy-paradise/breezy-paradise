@@ -27,7 +27,7 @@ const register = async (req, res, next) => {
         res.status(500).send("registration error");
     }
     next()
-    }
+}
 
 const login = async (req, res) => {
     const { username, password } = req.body;

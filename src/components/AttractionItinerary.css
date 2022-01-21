@@ -1,0 +1,41 @@
+.itinerary-section {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.itinerary-section h4 {
+  margin-bottom: 10px;
+}
+
+.itinerary-item {
+  display: flex;
+  justify-content: space-around;
+}
+
+.itinerary-item span {
+  font-weight: normal;
+}
+
+.itinerary-item h5 {
+  margin: 10px;
+}
+
+.itinerary-attraction {
+  width: 150px;
+  text-align: left;
+}
+
+.itinerary-cost {
+  min-width: 70px;
+}
+
+.delete-button {
+  height: 35px;
+}
+
+.itinerary-border {
+  border: 1px solid rgb(231, 204, 204);
+  padding: 10px;
+  margin: 35px 0 35px 0;
+}
