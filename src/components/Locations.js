@@ -25,10 +25,33 @@ const Locations = () => {
 
     return (
         <div className="wrapper">
+            <div className="wrapper-1">
+                <h1 className="tokyo">TOKYO</h1>
+                <img className="" src={sectionimage1}/> 
+            
+                
+            </div>
+            <div className="wrapper-2">
+                <div className="images-section">
+                    <div className="first-image-section">
+                        <h2 className="plan-heading first-plan-heading">Plan Your Excitement</h2>
+                        <img className="hoverimages first-img" src={sectionimage1}/> 
+                    </div>
+                    <div className="second-image-section">
+                        <h2 className="plan-heading second-plan-heading">Plan Your Adventure</h2>
+                        <img className="hoverimages second-img" src={sectionimage2}/>
+                
+                    </div>
+                
+                </div>
+                
+            </div>
+
+            <div className = "wrapper-3">
             <div className="my-container">
-            {locations.map(({ id, name, image1, image2, image3, description }) => {
-                return (
-                    <Link to={`/breezy-paradise/location/${id}`} key={id}>
+                {locations.map(({ id, name, image1, image2, image3, description }) => {
+                    return (
+                        <Link to={`/breezy-paradise/location/${id}`} key={id}>
                         
                             <div className='card-container'>
                                 <div className="image-container">
@@ -40,28 +63,29 @@ const Locations = () => {
                                 <p>{description}</p>
                             </div>
                         
-                    </Link>
+                        </Link>
                 )
-            })}
-            
-        </div>
-        <div className="wrapper-2">
-            <div className="images-section">
-            <div className="first-image-section">
-                <h2 className="plan-heading first-plan-heading">Plan Your Excitement</h2>
-            <img className="hoverimages first-img" src={sectionimage1}/> 
-            </div>
-            <div className="second-image-section">
-            <h2 className="plan-heading second-plan-heading">Plan Your Adventure</h2>
-            <img className="hoverimages second-img" src={sectionimage2}/>
-            </div>
+                })}
             
             </div>
-        </div>
+            </div>
+            <div className = "wrapper-4">
+                <div className = "featured-quote">
+                    <div className = "featured-quote-content">
+                        <h3 className = "featured-quote-text">
+                        "'NEW YORK!' HE SAID. 'THAT'S NOT A PLACE, IT'S A DREAM.'"
+                        </h3>
+                        <p class = "featured-quote-author">-Ralph Ellison</p>
+                    </div>
+                </div>
+                    
+            </div>
+            
         
         </div>
         
     )
+    
 }
 
 export default Locations;
