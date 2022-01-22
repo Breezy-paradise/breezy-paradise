@@ -18,8 +18,8 @@ const AttractionDetail = ({ attraction, addAttractionToItinerary }) => {
       {attraction ? (
         <div className='subcontainer-details'>
           <div className='subcontainer-details1'>
-            <img className='image' src={attraction.image1} />
-            <img className='image' src={attraction.image2} />
+            <img className='detail-image' src={attraction.image1} />
+            <img className='detail-image' src={attraction.image2} />
           </div>
           <div className='subcontainer-details2'>
             <h4 className='price'>Price: ${attraction.price}</h4>
