@@ -26,29 +26,16 @@ const Locations = () => {
     return (
         <div className="wrapper">
             <div className="wrapper-1">
-                <h1 className="tokyo">TOKYO</h1>
+                <h1 className="breezy-paradise">Breezy Paradise</h1>
                 <img className="" src={sectionimage1}/> 
             
                 
             </div>
-            <div className="wrapper-2">
-                <div className="images-section">
-                    <div className="first-image-section">
-                        <h2 className="plan-heading first-plan-heading">Plan Your Excitement</h2>
-                        <img className="hoverimages first-img" src={sectionimage1}/> 
-                    </div>
-                    <div className="second-image-section">
-                        <h2 className="plan-heading second-plan-heading">Plan Your Adventure</h2>
-                        <img className="hoverimages second-img" src={sectionimage2}/>
-                
-                    </div>
-                
-                </div>
-                
-            </div>
 
             <div className = "wrapper-3">
+                <h1 className = "selection">Select a destination to start your journey!</h1>
             <div className="my-container">
+                
                 {locations.map(({ id, name, image1, image2, image3, description }) => {
                     return (
                         <Link to={`/breezy-paradise/location/${id}`} key={id}>
@@ -69,6 +56,23 @@ const Locations = () => {
             
             </div>
             </div>
+            <div className="wrapper-2">
+                <div className="images-section">
+                    <div className="first-image-section">
+                        <h2 className="plan-heading first-plan-heading">Plan Your Excitement</h2>
+                        <img className="hoverimages first-img" src={sectionimage1}/> 
+                    </div>
+                    <div className="second-image-section">
+                        <h2 className="plan-heading second-plan-heading">Plan Your Adventure</h2>
+                        <img className="hoverimages second-img" src={sectionimage2}/>
+                
+                    </div>
+                
+                </div>
+                
+            </div>
+
+            
             <div className = "wrapper-4">
                 <div className = "featured-quote">
                     <div className = "featured-quote-content">
