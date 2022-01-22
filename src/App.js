@@ -7,6 +7,9 @@ function App() {
     <div className="App">
       <Header />
       {routes}
+      <footer>
+        <p>Create the perfect itinerary for your next adventure</p>
+      </footer>
     </div>
   );
 }

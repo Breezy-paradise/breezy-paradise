@@ -1,0 +1,11 @@
+footer {
+  height: 10vh;
+  background-color: #013b65;
+  color: #bbcde5;
+  text-align: center;
+}
+
+footer p {
+  padding: 30px;
+  font-style: italic;
+}
