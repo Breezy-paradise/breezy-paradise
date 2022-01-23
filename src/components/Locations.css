@@ -11,6 +11,11 @@
     background-image: url(../images/breezy1.jpg);
     background-size: 100% 100%;
 }
+
+.selection {
+    padding-top: 100px;
+    text-align: center;
+}
 .featured-quote-text {
     background-color: #0061a5;
     color:white;
@@ -120,12 +125,13 @@
     from {bottom: -200px;}
     to {bottom: 0px;}
 }
-.tokyo {
+.breezy-paradise {
     color: white;
     text-align: center;
-    margin: 250px 300px 0px;
+    margin: 10px 30px 0px;
     position: absolute;
-    font-size: calc(100px + (433 - 100) * (100vw - 476px) / (1900 - 476));
+    font-size: calc(10px + (433 - 100) * (100vw - 470px) / (1900 - 476));
+    
 }
 
 .my-container {
