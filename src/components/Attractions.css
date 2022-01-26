@@ -6,13 +6,20 @@
 
 img {
   max-width: 100%;
+}
+
+.attractions-image {
+  max-height: 180px;
   border-radius: 10px;
   padding: 5px;
   border: 1px solid rgb(150, 141, 141);
 }
 
-.detail-image{
+.detail-image {
   max-height: 500px;
+  border-radius: 10px;
+  padding: 5px;
+  border: 1px solid rgb(150, 141, 141);
 }
 
 .container {
@@ -45,6 +52,10 @@ img {
   margin-bottom: 20px;
 }
 
+.container2 h3 {
+  font-weight: normal;
+}
+
 .container3 {
   background-color: #ffffff;
   border: 1px solid rgb(243, 235, 235);
@@ -73,9 +84,18 @@ img {
 }
 
 .subcontainer2 {
-  margin-top: 35px;
-  margin-bottom: 0px;
+  margin: 35px 0 0 10px;
   padding: 5px;
+  text-align: left;
+}
+
+.subcontainer2 h4 {
+  font-weight: normal;
+  padding-top: 5px;
+}
+
+.subcontainer2 button {
+  margin: 10px 0;
 }
 
 .btn {
