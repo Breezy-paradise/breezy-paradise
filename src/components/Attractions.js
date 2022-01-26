@@ -5,7 +5,7 @@ const Attractions = (props) => {
   return (
     <div className="subcontainer">
       <div className="subcontainer1">
-        <img className="image" src={props.attraction.image1} />
+        <img className="attractions-image" src={props.attraction.image1} />
       </div>
       <div className="subcontainer2">
         <strong className="name">{props.attraction.name}</strong>
