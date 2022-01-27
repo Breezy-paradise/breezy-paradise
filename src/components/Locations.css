@@ -17,7 +17,7 @@
     text-align: center;
 }
 .featured-quote-text {
-    background-color: #0061a5;
+    background-color: #8b0096;
     color:white;
     font-family: 'Paytone One', sans-serif;;
     font-size: calc(30px + (50 - 30) * (100vw - 476px) / (1900 - 476));
@@ -30,11 +30,13 @@
     justify-content: center;
     padding-top: 140px;
     padding-bottom: 140px;
-    background-color: #0061a5;
+    background-color: #8b0096;
 }
 
 .featured-quote-content {
     max-width: 800px;
+    background-color: #8b0096;
+
 }
 
 .featured-quote-author {
