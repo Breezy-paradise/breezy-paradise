@@ -1,12 +1,11 @@
 require('dotenv').config();
 nodemailer = require('nodemailer');
 const express = require('express');
-// const html = require('./template.html');
+// const itinerary = require('./itinerary.js');
 const fs = require('fs');
 const { promisify } = require('util');
 const readFile = promisify(fs.readFile);
 const path = require('path');
-
 require('events').EventEmitter.defaultMaxListeners = 15;
 
 let { EMAIL_USERNAME, EMAIL_PASSWORD } = process.env;
@@ -32,7 +31,11 @@ module.exports = {
         from: EMAIL_USERNAME,
         to: email, // '544744b251-687e65@inbox.mailtrap.io'
         subject: 'Breezy Paradise Thanks You!',
-        html: '<h1>Thank you for registering to Breezy Paradise. Welcome to the greatest traveling experience you will ever have!</h1>',
+        html: `<h1 style="text-align:center;">BREEZY PARADISE</h1>
+        <h4 style="text-align:center;">Thank you for registering to Breezy Paradise. Welcome to the greatest traveling experience you will ever have!</h4>
+        <div style="text-align:center;">
+            <img src="https://xoxobella.com/wp-content/uploads/2021/08/vacation_instagram_captions_puns_quotes-1.jpg" width="380" height="280" />
+        </div>`
     };
 
     transporter.sendMail(thanksEmail, function(error, info){
@@ -55,12 +58,27 @@ module.exports = {
             pass: EMAIL_PASSWORD,       
         }
     });
+    const emailText = itinerary.reduce((acc, curr) => { 
+        acc+=curr.dayNumber + ' '
+        acc+=curr.name + ' Hours: '
+        acc+=curr.durationHours + ' Price: $'
+        acc+=curr.price + ' '
+        return acc
+    }
+        , 
+        
+        `<h1 style="text-align:center;">BREEZY PARADISE</h1>
+        <div style="text-align:center;">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRCZ6lAaWXL_48DcDLastW4uMCl214J_cN6rw&usqp=CAU" width="380" height="280" />
+        </div>
+        <h6 style="text-align:center;" width="400;" height="280;">Dear Breezer, Thank you for choosing Breezy Paradise for your next greatest vacation! Here are all the details to your itinerary:</h6>
+        `)
     
-    const itineraryEmail = {
-        from: EMAIL_USERNAME,
+        const itineraryEmail = {
+        from: EMAIL_USERNAME + `Breezy Paradise Team`,
         to: email,
         subject: 'Upcoming Breezy Paradise Vacation',
-        html: await readFile('server/emails/template.html', 'utf8'),
+        html: emailText,
     };
 
     transporter.sendMail(itineraryEmail, function(error, info) {
