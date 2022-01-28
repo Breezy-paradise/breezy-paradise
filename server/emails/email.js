@@ -1,7 +1,6 @@
 require('dotenv').config();
 nodemailer = require('nodemailer');
 const express = require('express');
-// const itinerary = require('./itinerary.js');
 const fs = require('fs');
 const { promisify } = require('util');
 const readFile = promisify(fs.readFile);
@@ -59,26 +58,30 @@ module.exports = {
         }
     });
     const emailText = itinerary.reduce((acc, curr) => { 
-        acc+=curr.dayNumber + ' '
-        acc+=curr.name + ' Hours: '
-        acc+=curr.durationHours + ' Price: $'
-        acc+=curr.price + ' '
+        acc+=`<dt style="text-align:start;margin-bottom:10px;margin-top:10px;font-weight:bold;">Day: #${curr.dayNumber}</dt>  
+        <dd style="text-align:start;">Attraction: ${curr.name}</dd>
+        <dd style="text-align:start;">Hours: ${curr.durationHours}</dd> 
+        <dd style="text-align:start;">Price: $${curr.price}</dd>`
         return acc
     }
         , 
         
-        `<h1 style="text-align:center;">BREEZY PARADISE</h1>
+        ''
+        )
+        const information =
+            `<h1 style="text-align:center;">BREEZY PARADISE</h1>
         <div style="text-align:center;">
             <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRCZ6lAaWXL_48DcDLastW4uMCl214J_cN6rw&usqp=CAU" width="380" height="280" />
         </div>
-        <h6 style="text-align:center;" width="400;" height="280;">Dear Breezer, Thank you for choosing Breezy Paradise for your next greatest vacation! Here are all the details to your itinerary:</h6>
-        `)
+        <h3 style="text-align:center;" width="400;" height="280;">Dear Breezer, Thank you for choosing Breezy Paradise for your next greatest vacation! Here are all the details to your itinerary:</h3>
+        <dl>${emailText}</dl>
+        `
     
         const itineraryEmail = {
-        from: EMAIL_USERNAME + `Breezy Paradise Team`,
+        from: EMAIL_USERNAME,
         to: email,
         subject: 'Upcoming Breezy Paradise Vacation',
-        html: emailText,
+        html: information,
     };
 
     transporter.sendMail(itineraryEmail, function(error, info) {
